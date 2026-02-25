@@ -66,6 +66,11 @@ class QueryManager:
                             }
                             user {
                                 genderPronoun
+                                authorizations {
+                                    externalId
+                                    externalUsername
+                                    type
+                                }
                             }
                         }
                     }

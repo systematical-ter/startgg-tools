@@ -28,10 +28,16 @@ class Player:
         prefix = part_info['prefix']
 
         connection_info = part_info['requiredConnections']
+        auth_info = part_info['user']['authorizations']
         discord_name = None
-        for auth in connection_info:
-            if auth['type'] == "DISCORD":
-                discord_name = auth['externalUsername']
+        if connection_info is not None:
+            for auth in connection_info:
+                if auth['type'] == "DISCORD":
+                    discord_name = auth['externalUsername']
+        elif auth_info is not None :
+            for auth in auth_info:
+                if auth['type'] == "DISCORD":
+                    discord_name = auth['externalUsername']
 
         user_info = part_info['user']
         pronouns = user_info['genderPronoun']

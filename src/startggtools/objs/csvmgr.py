@@ -12,3 +12,8 @@ class CSVManager:
                 discordname = f"\"{p.discordName}\""
                 f.write(f"\"{p.name}\",{prefix if p.prefix else ''},{discordname if p.discordName else ''},{pronouns if p.pronouns else ''}\n")
         
+    @staticmethod
+    def save_simple_to_file(players: Dict[str, Player], outpath: str):
+        with open(outpath, 'w') as f:
+            for _,p in players.items():
+                f.write(p.name + "\n")
